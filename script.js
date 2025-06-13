@@ -44,4 +44,32 @@ document.addEventListener('DOMContentLoaded', () => {
     umkmLoginBtn.addEventListener('click', () => {
         window.location.href = 'login.html';
     });
+
+    // Handle send OTP button click
+    const sendOtpBtn = document.getElementById('sendOtpBtn');
+    const phoneInput = document.getElementById('phoneInput');
+
+    sendOtpBtn.addEventListener('click', () => {
+        let phoneNumber = phoneInput.value.trim();
+        if (!phoneNumber) {
+            alert('Mohon masukkan nomor handphone.');
+            return;
+        }
+        // Remove non-digit characters
+        phoneNumber = phoneNumber.replace(/\D/g, '');
+
+        // Add country code if not present (assuming Indonesia +62)
+        if (phoneNumber.startsWith('0')) {
+            phoneNumber = '62' + phoneNumber.substring(1);
+        } else if (!phoneNumber.startsWith('62')) {
+            phoneNumber = '62' + phoneNumber;
+        }
+
+        // Generate 6-digit OTP code
+        const otpCode = Math.floor(100000 + Math.random() * 900000);
+
+        const message = encodeURIComponent(`Kode OTP Anda adalah: ${otpCode}`);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+        window.open(whatsappUrl, '_blank');
+    });
 });
