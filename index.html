@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kuliner Malam Karawang</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="loginModal">
+            <button class="close-button" id="closeButton" aria-label="Close modal">&times;</button>
+            <h2>Masuk</h2>
+            <button class="btn visitor-btn">Masuk sebagai pengunjung</button>
+            <button class="btn umkm-btn">Masuk sebagai UMKM</button>
+            <p class="register-text">
+                Belum punya akun? <a href="#" class="register-link" id="openRegister">Daftar dulu ya!</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="registerOverlay" style="display:none;">
+        <div class="modal" id="registerModal">
+            <button class="close-button" id="closeRegister" aria-label="Close modal">&times;</button>
+            <h2>Daftar</h2>
+            <input type="text" placeholder="No. Handphone" id="phoneInput" />
+            <button class="btn umkm-btn" id="sendOtpBtn">Kirim Kode OTP</button>
+            <p style="margin: 1rem 0; font-weight: 600;">atau</p>
+            <button class="btn visitor-btn" id="googleRegisterBtn">Daftar dengan google</button>
+            <p class="register-text" style="margin-top: 1rem;">
+                Sudah punya akun? <a href="#" id="backToLogin">Masuk di sini</a>
+            </p>
+        </div>
+    </div>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
